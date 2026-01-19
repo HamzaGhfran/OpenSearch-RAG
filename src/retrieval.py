@@ -22,7 +22,8 @@ def retrieve(query, k=3):
     res = client.search(index=INDEX_NAME, body=body)
     return [hit["_source"]["metadata"]["text"] for hit in res["hits"]["hits"]]
 
-# Example
-results = retrieve("What is OpenSearch?")
+
+
+results = retrieve("")
 for r in results:
     print(r)
