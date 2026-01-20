@@ -59,5 +59,5 @@ def rag_answer(question: str):
 
 
 if __name__ == "__main__":
-    answer = rag_answer("What is Hamza's experience in machine learning?")
+    answer = rag_answer("What is Hamza's experience in Generative AI?")
     print(answer)
