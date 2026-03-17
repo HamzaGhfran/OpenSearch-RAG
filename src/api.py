@@ -9,7 +9,6 @@ router = APIRouter(
 )
 
 @router.post("/upload_file")
-@app.post("/upload-pdf")
 async def upload_pdf(file: UploadFile = File(...)):
     
     if not file.filename.endswith(".pdf"):
@@ -28,6 +27,11 @@ async def upload_pdf(file: UploadFile = File(...)):
     }
     
 
-@router.post("/retrive")
-def retriver(query:str):
-    pass
+@router.post("/ask")
+async def ask_question(request: QuestionRequest):
+    answer = rag_answer(request.question)
+
+    return {
+        "question": request.question,
+        "answer": answer
+    }
